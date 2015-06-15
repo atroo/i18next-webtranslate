@@ -1,28 +1,29 @@
 {
-  "author": "jamuhl"
-  , "name": "i18next-webtranslate"
-  , "version": "0.0.0"
-  , "private": true
-  , "main": "server.js"
-  , "engines": {
-        "node": ">= 0.6.18"
-      , "npm": ">= 1.1.x"
-    }
-  , "dependencies": {
-      "grunt": "*"
-    , "grunt-contrib": ">=0.1.0"
-    , "requirejs": "2.0.6"
-    , "express": ">= 3.0.x"
-    , "stylus": ">= 0.24.0"
-    , "nib": ">= 0.3.2"
-    , "jade": ">= 0.0.1"
-    , "markdown": ">= 0.4.0"
-    , "handlebars": ">= 0.0.1"
-    , "async": ">= 0.1.18"
-    , "lodash": ">= 0.5.x"
-    , "zipstream": ">=0.2.1"
-    , "i18next": ">=1.5.0"
-    }
-  , "devDependencies": {}
-  , "scripts": {}
+  "author": "jamuhl",
+  "name": "i18next-webtranslate",
+  "version": "0.0.0",
+  "private": true,
+  "main": "server.js",
+  "engines": {
+    "node": ">= 0.6.18",
+    "npm": ">= 1.1.x"
+  },
+  "dependencies": {
+    "async": ">= 0.1.18",
+    "express": ">= 3.0.x < 4.x.x",
+    "grunt": "*",
+    "grunt-contrib": ">=0.1.0",
+    "handlebars": ">= 0.0.1",
+    "i18next": ">=1.5.0",
+    "jade": ">= 0.0.1",
+    "joi": "^6.4.3",
+    "lodash": ">= 0.5.x",
+    "markdown": ">= 0.4.0",
+    "nib": ">= 0.3.2",
+    "requirejs": "2.0.6",
+    "stylus": ">= 0.24.0",
+    "zipstream": ">=0.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {}
 }

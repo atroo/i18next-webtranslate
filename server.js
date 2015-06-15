@@ -4,6 +4,8 @@ var express = require('express')
   , url = require('url')
   , i18n = require('i18next');
 
+var joi = require("joi");
+var projectScheme = require("./new-client/app/data/project");
 
 // use filesys
 i18n.init({
@@ -23,9 +25,9 @@ app.configure(function() {
     // app.set('view engine', 'jade');
     // app.set('views', __dirname);
 
-    app.use('/app', express.static('client/app'));
-    app.use('/assets', express.static('client/assets'));
-    app.use('/app/templates', express.static('client/assets/templates'));
+    app.use('/app', express.static('new-client/app'));
+    app.use('/assets', express.static('new-client/assets'));
+    //app.use('/app/templates', express.static('new-client/assets/templates'));
 
     // for release 
     app.use('/release', express.static('client/dist/release/assets'));
@@ -40,8 +42,38 @@ app.get("/favicon.ico", function(req, res) {
     return res.sendfile('client/assets/favicon.ico');
 });
 
+
+app.get("/api/projects", function(req, res) {
+    fs.readFile("./data/projects.json", function(err, data) {
+        var obj = JSON.parse(data);
+        res.send(obj.projects);
+    });
+});
+
+app.get("/api/project/:name", function(req, res) {
+    
+});
+
+app.post("/api/projects", function(req, res) {
+    var data = req.body;
+    
+    console.log(req.body);
+    
+    projectScheme.validate(data, function(err) {
+        if(err) {
+            return res.json(err);
+        }
+        
+        
+    });
+    
+});
+
+
+
+
 // API to get locale file content (JSONP)
-app.get("/api/:locale/:namespace", function(req, res) {
+/*app.get("/api/:locale/:namespace", function(req, res) {
   var locale = req.params.locale
     , namespace = req.params.namespace;
 
@@ -55,7 +87,7 @@ app.get("/api/:locale/:namespace", function(req, res) {
       res.end(file);
     }
   }
-});
+});*/
 
 i18n.registerAppHelper(app)
     .serveClientScript(app)
